@@ -403,6 +403,9 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+# SRTM format
+*.hgt
+
 # OpenCover UI analysis results
 OpenCover/
 

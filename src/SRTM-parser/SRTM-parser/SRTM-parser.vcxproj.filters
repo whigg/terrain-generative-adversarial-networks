@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="1. Source Files">
+      <UniqueIdentifier>{8d6b7c94-c381-4fc9-8feb-6addb2992cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2. Stdafx / Resource Files">
+      <UniqueIdentifier>{fa3d042f-6782-4f9c-b215-5d764ef715a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>2. Stdafx / Resource Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>2. Stdafx / Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

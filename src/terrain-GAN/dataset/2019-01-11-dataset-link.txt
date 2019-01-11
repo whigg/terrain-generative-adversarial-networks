@@ -1,0 +1,4 @@
+﻿1. http://viewfinderpanoramas.org/dem3.html
+2. https://blenderartists.org/t/possible-to-download-height-map-data-from-google-earth-and-import-to-blender/647771/3
+3. http://dwtkns.com/srtm/
+4. http://terrain.party/
