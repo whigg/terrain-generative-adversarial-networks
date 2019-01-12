@@ -1,19 +1,19 @@
 #include "stdafx.h"
-#include "sa-shader.h"
+#include "Shader.h"
 #include <GLFX/glfx.h>
-#include <stdio.h>
+#include "Logger.h"
 
-SaShader::SaShader()
+Shader::Shader()
 {
 	effect = glfxGenEffect();
 }
 
-SaShader::~SaShader()
+Shader::~Shader()
 {
 	glfxDeleteEffect(effect);
 }
 
-int SaShader::compileProgram(const char * effectFilePath, const char * programName) const
+int Shader::compileProgram(const char * effectFilePath, const char * programName) const
 {
 	bool bParsingSuccess = glfxParseEffectFromFile(effect, effectFilePath);
 	if (!bParsingSuccess)
@@ -28,17 +28,17 @@ int SaShader::compileProgram(const char * effectFilePath, const char * programNa
 		handleGLFXError();
 		return -1;
 	}
-
+	
 	return program;
 }
 
-const char * SaShader::getProgramName(int programIndex) const
+const char* Shader::getProgramName(int programIndex) const
 {
 	return glfxGetProgramName(effect, programIndex);
 }
 
-void SaShader::handleGLFXError(void) const
+void Shader::handleGLFXError(void) const
 {
-	const char* errorLog = glfxGetEffectLog(effect);
-	fprintf( stderr, "GLFX : %s\n", errorLog );
+	std::string errorLog = glfxGetEffectLog(effect);
+	INFO_LOG("GLFX error log : {}", errorLog);
 }

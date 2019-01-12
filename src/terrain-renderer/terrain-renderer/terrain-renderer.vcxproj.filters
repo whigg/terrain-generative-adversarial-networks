@@ -18,10 +18,52 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>3. Stdafx / Resources Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSystem.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>3. Stdafx / Resources Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cgmath.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NonCopyable.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Obfuscator.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GBuffer.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSystem.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>1. Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

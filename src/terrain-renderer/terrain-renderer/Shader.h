@@ -1,15 +1,18 @@
-#pragma once
+#ifndef SHADER_H
+#define SHADER_H
 
-class SaShader
+class Shader
 {
 private:
 	int effect;
 public:
-	SaShader();
-	~SaShader();
+	Shader();
+	~Shader();
 
 	int 		compileProgram(const char *effectFilePath, const char *programName) const;
-	const char* getProgramName(int programIndex)									const;
+	const char* getProgramName(int programIndex) const;
 private:
 	void		handleGLFXError(void) const;
 };
+
+#endif
