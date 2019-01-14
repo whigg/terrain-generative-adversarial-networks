@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 from zipfile import ZipFile
 from multiprocessing import Pool
 import os
+from functools import partial
+from pprint import pprint
 
 def getHTML(url) :
     html = ""
@@ -11,31 +13,32 @@ def getHTML(url) :
         html = res.text
     return html
 
-def extract_chunk(chunk, delimiter) :
-    print(delimiter + " : " + str(len(chunk)))
+def extract_chunk(suffix, chunk) :
+    print(suffix + " : " + str(len(chunk)))
 
-    for hgt_line in chunk[1:]:
-        hgt_soup = hgt_line.find("a")
-        href_area = hgt_soup["href"]
-        r = requests.get(delimiter + href_area)
-        with open(href_area, 'wb') as f:
+    for filename in chunk:
+        r = requests.get(suffix + filename)
+        with open(filename, 'wb') as f:
             f.write(r.content)
-        with ZipFile(href_area, 'r') as zip:
-            zip.extractall()
-        os.remove(href_area)
+        with ZipFile(filename, 'r') as zip:
+            zip.extractall(".\dataset")
+        os.remove(filename)
 
 
 def crawling(region_name, chunk_size) :
     base_url = "https://dds.cr.usgs.gov/srtm/version2_1/SRTM3/"
     html = getHTML(base_url + region_name)
     soup = BeautifulSoup(html, "html.parser")
-    hgt_area = soup.find_all("li")
-    chunk_parts = [(base_url + region_name, hgt_area[i : i + chunk_size]) for i in range(0, len(hgt_area), chunk_size)]
+    hgt_area = soup.find_all("a")[1:]
+    hgt_string  = [str(tag)[9:24] for tag in hgt_area]
+    chunk_parts = [hgt_string[i : i + chunk_size] for i in range(0, len(hgt_string), chunk_size)]
 
-    with Pool(len(chunk_parts)) as p :
-        p.map(extract_chunk, chunk_parts)
+    func = partial(extract_chunk, base_url + region_name)
+    print("Start parsing region [{}].".format(region_name))
 
+    with Pool(16) as p :
+        p.map(func, chunk_parts)
 
 if __name__ == "__main__" :
     for region in ["Africa/", "Australia/", "Eurasia/", "Islands/", "North_America/", "South_America/"] :
-        crawling(region, 800)
+        crawling(region, 200)
