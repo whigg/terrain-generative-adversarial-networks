@@ -8,9 +8,9 @@ struct GLFWwindow;
 class Application : public NonCopyable
 {
 protected:
-	GLFWwindow *window;
-	int clientWidth;
-	int clientHeight;
+	GLFWwindow *window		 = nullptr;
+	int			clientWidth	 = 0;
+	int			clientHeight = 0;
 protected:
 	virtual void initialUpdate(float dt) = 0;
 	virtual void updateScene(float dt)	 = 0;
