@@ -1,11 +1,18 @@
 #include "stdafx.h"
 #include "Logger.h"
 
+#include "TerrainApplication.h"
+
 int main(void) 
 {
 	INIT_LOGGER();
 
-	INFO_LOG("new log");
+	TerrainApplication app;
+	if (app.initApplication() == false)
+	{
+		ERROR_LOG("Failed to init opengl context");
+		return -1;
+	}
 
-	return 0;
+	return app.runApplicationLoop();
 }

@@ -2,6 +2,7 @@
 
 #ifdef _DEBUG
 #pragma comment(lib, "nvToolsExt64_1d.lib")
+#pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glfx.lib")
 #pragma comment(lib, "glew32.lib")
 #pragma comment(lib, "glfw3d.lib")
@@ -20,6 +21,7 @@
 #pragma comment(lib, "libprotobufd.lib")
 #else
 #pragma comment(lib, "glfx.lib")
+#pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glfw3.lib")
 #pragma comment(lib, "glew32.lib")
 #pragma comment(lib, "opencv_imgcodecs343.lib")

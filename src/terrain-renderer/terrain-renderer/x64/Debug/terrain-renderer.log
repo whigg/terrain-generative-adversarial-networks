@@ -1,2 +1,6 @@
-﻿  main.cpp
-  terrain-renderer.vcxproj -> C:\Users\User\Desktop\Github\synthesis-fully-applicable-terrain-GAN\synthesis-fully-applicable-terrain-GAN\src\terrain-renderer\x64\Debug\terrain-renderer.exe
+﻿  Application.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': 매크로 재정의
+  d:\project\fully-applicable-terrain-gan\work\src\terrain-renderer\terrain-renderer\include\glfw\glfw3.h(98): note: 'APIENTRY'의 이전 정의를 참조하십시오.
+  TerrainApplication.cpp
+  main.cpp
+  terrain-renderer.vcxproj -> D:\project\fully-applicable-terrain-GAN\work\src\terrain-renderer\x64\Debug\terrain-renderer.exe

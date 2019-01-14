@@ -27,6 +27,12 @@
     <ClCompile Include="Logger.cpp">
       <Filter>1. Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainApplication.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -63,6 +69,15 @@
       <Filter>1. Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Logger.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainApplication.h">
       <Filter>1. Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,0 @@
-1. global Climate data sets : https://www.researchgate.net/deref/http%3A%2F%2Fwww.worldclim.org%2F
-2. Free GIS data : https://freegisdata.rtwilson.com/
-3. high-res height-map  : https://eoimages.gsfc.nasa.gov/images/imagerecords/74000/74218/world.200412.3x21600x10800.jpg
-4. high-res texture-map : https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73934/gebco_08_rev_elev_21600x10800.png
-
-5. Google dataset search 라는 사이트 : https://toolbox.google.com/datasetsearch
-   여기서 많이 얻어갈 수 있을듯.

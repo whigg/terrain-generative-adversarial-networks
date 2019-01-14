@@ -4,7 +4,7 @@
 #include "NonCopyable.h"
 
 template <typename Type>
-class Framebuffer : public Noncopyable 
+class Framebuffer : public Noncopyable
 {
 private:
 public:
