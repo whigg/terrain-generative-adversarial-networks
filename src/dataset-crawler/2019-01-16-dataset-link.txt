@@ -1,0 +1,2 @@
+1. High-resolution and high quality SRTM : http://srtm.csi.cgiar.org/srtmdata/
+2. http://vterrain.org/Elevation/global.html
