@@ -80,5 +80,8 @@
     <ClInclude Include="TerrainApplication.h">
       <Filter>1. Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

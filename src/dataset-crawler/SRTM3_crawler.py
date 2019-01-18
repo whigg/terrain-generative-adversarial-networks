@@ -22,7 +22,7 @@ def extract_chunk(suffix, chunk) :
         with open(filename, 'wb') as f:
             f.write(r.content)
         with ZipFile(filename, 'r') as zip:
-            zip.extractall(".\dataset")
+            zip.extractall(".\SRTM-dataset")
         os.remove(filename)
 
 

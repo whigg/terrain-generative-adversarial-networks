@@ -36,18 +36,18 @@ bool Application::initContext(void)
 		return false;
 	}
 
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4				 );
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 3				 );
-	glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint( GLFW_SAMPLES, 4								 );
-	glfwWindowHint( GLFW_RESIZABLE, GLFW_FALSE					 );
+	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4				  );
+	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 3				  );
+	glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
+	glfwWindowHint( GLFW_SAMPLES, 4								  );
+	glfwWindowHint( GLFW_RESIZABLE, GLFW_FALSE					  );
 
 #ifdef __APPLE__ 
 	glfwWindowHint(GLFW_OPENGL_COMPAT_PROFILE, GLFW_OPENGL_FORWARD_COMPAT);
 #endif
 
-	GLFWmonitor* glfwMonitor = glfwGetPrimaryMonitor();
-	const GLFWvidmode* glfwMode = glfwGetVideoMode(glfwMonitor);
+	GLFWmonitor		  *glfwMonitor	= glfwGetPrimaryMonitor();
+	GLFWvidmode const *glfwMode		= glfwGetVideoMode(glfwMonitor);
 
 	glfwWindowHint( GLFW_RED_BITS, glfwMode->redBits		 );
 	glfwWindowHint( GLFW_GREEN_BITS, glfwMode->greenBits	 );
@@ -94,7 +94,7 @@ bool Application::initContext(void)
 	const GLubyte* vendor	= glGetString(GL_VENDOR	 );
 	const GLubyte* renderer = glGetString(GL_RENDERER);
 
-	INFO_LOG(OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer);
+	INFO_LOG( OBFUSCATE("Vendor : {:<15}, Renderer : {:<15}"), vendor, renderer );
 
 	registerCallback();
 
@@ -103,11 +103,11 @@ bool Application::initContext(void)
 
 void Application::registerCallback(void)
 {
-	glfwSetKeyCallback( window, localKeyCallback );
-	glfwSetMouseButtonCallback( window, localMouseBtnCallback );
-	glfwSetCursorPosCallback( window, localMousePosCallback );
+	glfwSetKeyCallback			  ( window, localKeyCallback	  );
+	glfwSetMouseButtonCallback	  ( window, localMouseBtnCallback );
+	glfwSetCursorPosCallback	  ( window, localMousePosCallback );
 	glfwSetFramebufferSizeCallback( window, localResizingCallback );
-	glfwSetScrollCallback( window, localScrollCallback );
+	glfwSetScrollCallback		  ( window, localScrollCallback   );
 }
 
 int Application::runApplicationLoop(void)

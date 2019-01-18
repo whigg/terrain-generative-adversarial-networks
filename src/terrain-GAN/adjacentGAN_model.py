@@ -1,5 +1,5 @@
 from keras_contrib.layers.normalization import InstanceNormalization, BatchRenormalization
-from keras.layers import Input, Dense, Reshape, Flatten, Dropout, Concatenate, Add, Conv2DTranspose
+from keras.layers import Input, Dense, Reshape, Flatten, Dropout, Concatenate, Add, Deconv2D
 from keras.layers import BatchNormalization, Activation, ZeroPadding2D
 from keras.layers.advanced_activations import ReLU, LeakyReLU
 from keras.layers.convolutional import UpSampling2D, Conv2D
@@ -35,13 +35,13 @@ class AdjacentGAN :
         self.output_channel = output_channel
         self.image_shape    = (self.width, self.height, self.input_channel)
 
-        self.discriminator  = self._build_discriminator()
         self.generator      = self._build_generator()
+        self.discriminator  = self._build_discriminator()
 
     def _build_generator(self):
         def ck(layer_input, filters, f_size=7, i_norm=True) :
             d = ReflectionPadding2D(padding=(3, 3))(layer_input)
-            d = Conv2D(filters, kernel_size=f_size, padding="valid")(d)
+            d = Conv2D(filters, kernel_size=f_size, strides=1, padding="same")(d)
             if i_norm == True :
                 d = InstanceNormalization()(d)
             d = ReLU()(d)
@@ -63,11 +63,11 @@ class AdjacentGAN :
             d = Conv2D(filters, kernel_size=f_size, padding="valid")(d)
             if i_norm == True :
                 d = InstanceNormalization()(d)
-            d = Add()([layer_input, d])
+            d = layer_input + d
             d = ReLU()(d)
             return d
         def uk(layer_input, filters, f_size=3, i_norm=True) :
-            d = Conv2DTranspose(filters, kernel_size=f_size, stride=2, padding="same", output_padding="same")(layer_input)
+            d = Deconv2D(filters, kernel_size=f_size, padding="valid")(layer_input)
             if i_norm == True:
                 d = InstanceNormalization()(d)
             d = ReLU()(d)

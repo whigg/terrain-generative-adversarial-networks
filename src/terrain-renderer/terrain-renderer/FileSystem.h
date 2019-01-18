@@ -13,9 +13,9 @@ private:
 public:
 	FileSystem() = default;
 
-	void		addDirectory(const std::string& label, const std::string& directory);
-	std::string getRootPath(void) const;
-	std::string getRelativePath(const std::string& label, const std::string& filename) const;
+	void		addDirectory   ( const std::string& label, const std::string& directory );
+	std::string getRootPath	   ( void ) const;
+	std::string getRelativePath( const std::string& label, const std::string& filename ) const;
 };
 
 #endif //FILE_SYSTEM_H
