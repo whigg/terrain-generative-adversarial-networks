@@ -7,30 +7,11 @@
 
 class Mesh
 {
-public:
-	class Vertex;
 private:
-	Material material;
-	std::vector<Vertex>   vertices;
+	std::vector<vec3>	  positions;
+	std::vector<vec3>	  normals;
+	std::vector<vec2>	  uvs;
 	std::vector<uint32_t> indices;
-public:
-	class Vertex
-	{
-	public:
-		vec3 position;
-		vec3 normal;
-		vec2 texCoords;
-	public:
-		Vertex() = default;
-		Vertex(const vec3&, const vec3&, const vec2&);
-		Vertex(const Vertex&);
-		Vertex& operator=(const Vertex&);
-		Vertex(Vertex&&);
-		Vertex& operator=(Vertex&&);
-		
-		float & operator[](int i);
-		float const & operator[](int i) const;
-	};
 public:
 	Mesh() = default;
 	Mesh(const Mesh&);
@@ -38,9 +19,15 @@ public:
 	Mesh(Mesh&&);
 	Mesh& operator=(Mesh&&);
 
-	void setMaterial	(const Material& material			 );
-	void setVertexBuffer(const std::vector<Vertex>& vertices );
-	void setIndexBuffer	(const std::vector<uint32_t>& indices);
+	std::size_t  getNumVertices (void) const;
+	float const* getPositions   (void) const;
+	float const* getNormals	    (void) const;
+	float const* getUVs		    (void) const;
+	std::size_t  getNumTriangles(void) const;
+
+	bool hasPositions(void) const;
+	bool hasNormals	 (void)	const;
+	bool hasUVs		 (void)	const;
 };
 
 #endif

@@ -11,11 +11,12 @@ namespace
 	Application *gApp = nullptr;
 }
 
-void localKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
-void localMousePosCallback(GLFWwindow* window, double xpos, double ypos);
-void localMouseBtnCallback(GLFWwindow* window, int btn, int action, int mods);
-void localScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
-void localResizingCallback(GLFWwindow* window, int newWidth, int newHeight);
+// local callback functions declaration
+void localKeyCallback		( GLFWwindow* window, int key, int scancode, int action, int mode );
+void localMousePosCallback	( GLFWwindow* window, double xpos, double ypos					  );
+void localMouseBtnCallback	( GLFWwindow* window, int btn, int action, int mods				  );
+void localScrollCallback	( GLFWwindow* window, double xoffset, double yoffset			  );
+void localResizingCallback	( GLFWwindow* window, int newWidth, int newHeight				  );
 
 Application::Application()
 {
@@ -103,11 +104,12 @@ bool Application::initContext(void)
 
 void Application::registerCallback(void)
 {
-	glfwSetKeyCallback			  ( window, localKeyCallback	  );
-	glfwSetMouseButtonCallback	  ( window, localMouseBtnCallback );
-	glfwSetCursorPosCallback	  ( window, localMousePosCallback );
-	glfwSetFramebufferSizeCallback( window, localResizingCallback );
-	glfwSetScrollCallback		  ( window, localScrollCallback   );
+	glfwSetKeyCallback			  ( window, localKeyCallback				  );
+	glfwSetMouseButtonCallback	  ( window, localMouseBtnCallback			  );
+	glfwSetCursorPosCallback	  ( window, localMousePosCallback			  );
+	glfwSetFramebufferSizeCallback( window, localResizingCallback			  );
+	glfwSetScrollCallback		  ( window, localScrollCallback				  );
+	glfwSetInputMode			  ( window, GLFW_CURSOR, GLFW_CURSOR_DISABLED );
 }
 
 int Application::runApplicationLoop(void)

@@ -2,22 +2,37 @@
 #define FRAMEBUFFER_H
 
 #include "NonCopyable.h"
+#include <stdint.h>
+#include <vector>
+#include "cgmath.h"
 
-template <typename Type>
-class Framebuffer : public Noncopyable
+class Framebuffer : public NonCopyable
 {
-private:
-public:
+protected:
+	std::vector<uint32_t> colorTextures;
+	ivec2			 bufferSize;
+	uint32_t		 depthTexture;
 public:
 	Framebuffer() = default;
 
-	Type& operator~() noexcept 
+	virtual bool initFramebuffer(int width, int height);
+	
+	void attachColorTexture(int width, int height);
+	void attachDepthTexture(int width, int height);
+	void bindBuffer		   (void) const;
+	void unbindBuffer	   (void) const;
+
+	uint32_t getColorTexture(int index) const
 	{
-		return *static_cast<Type *>(this);
+		return colorTextures[index];
 	}
-	Type const& operator~() const noexcept 
+	uint32_t getDepthTexture(void) const
 	{
-		return *static_cast<Type const *>(this);
+		return depthTexture;
+	}
+	ivec2    getBufferSize  (void) const
+	{
+		return bufferSize;
 	}
 };
 

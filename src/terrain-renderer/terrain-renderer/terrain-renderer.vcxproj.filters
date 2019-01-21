@@ -33,6 +33,15 @@
     <ClCompile Include="TerrainApplication.cpp">
       <Filter>1. Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framebuffer.cpp">
+      <Filter>1. Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -81,6 +90,9 @@
       <Filter>1. Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
+      <Filter>1. Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
       <Filter>1. Source Files</Filter>
     </ClInclude>
   </ItemGroup>

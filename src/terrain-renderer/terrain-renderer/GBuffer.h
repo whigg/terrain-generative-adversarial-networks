@@ -3,7 +3,7 @@
 
 #include "Framebuffer.h"
 
-class GBuffer : public Framebuffer<GBuffer>
+class GBuffer : public Framebuffer
 {
 private:
 public:
